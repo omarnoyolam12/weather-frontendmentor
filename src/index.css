@@ -9,4 +9,11 @@
     --color-blueapp-700: hsl(248, 70%, 36%);
 
     --color-orangeapp-500: hsl(28, 100%, 52%);
+
+    --color-brand-950: hsl(243, 96%, 9%);
+    --color-brand-800: hsl(243, 27%, 20%);
+    --color-brand-700: hsl(243, 23%, 24%);
+    --color-brand-600: hsl(243, 23%, 30%);
+    --color-brand-300: hsl(240, 6%, 70%);
+    --color-brand-200: hsl(250, 6%, 84%);
 }
