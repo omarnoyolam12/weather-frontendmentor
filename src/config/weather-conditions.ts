@@ -1,12 +1,12 @@
 // 1. Importas tus recursos visuales usando tu alias "@"
-import iconDrizzle from '@/assets/images/icons/icon-drizzle.webp';
-import iconFog from '@/assets/images/icons/icon-fog.webp';
-import iconOvercast from '@/assets/images/icons/icon-overcast.webp';
-import iconPartlyCloudy from '@/assets/images/icons/icon-partly-cloudy.webp';
-import iconRain from '@/assets/images/icons/icon-rain.webp';
-import iconSnow from '@/assets/images/icons/icon-snow.webp';
-import iconStorm from '@/assets/images/icons/icon-storm.webp';
-import iconSunny from '@/assets/images/icons/icon-sunny.webp';
+import iconDrizzle from '@/assets/images/weather/icon-drizzle.webp';
+import iconFog from '@/assets/images/weather/icon-fog.webp';
+import iconOvercast from '@/assets/images/weather/icon-overcast.webp';
+import iconPartlyCloudy from '@/assets/images/weather/icon-partly-cloudy.webp';
+import iconRain from '@/assets/images/weather/icon-rain.webp';
+import iconSnow from '@/assets/images/weather/icon-snow.webp';
+import iconStorm from '@/assets/images/weather/icon-storm.webp';
+import iconSunny from '@/assets/images/weather/icon-sunny.webp';
 
 export interface WeatherVisualCondition {
     description: string;

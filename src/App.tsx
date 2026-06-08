@@ -1,6 +1,7 @@
 import { NavBar } from "@/presentation/components/shared";
-import { SearchBar, DisplayCurrentWeather, DisplayDailyForecast } from "@/presentation/components/weather";
+import { SearchBar, DisplayCurrentWeather, DisplayDailyForecast, DisplayHourlyForcast } from "@/presentation/components/weather";
 import type { DailyForecast } from "@/domain/entities/weather.entity";
+import { mockHourlyForecast } from "@/data/hourly-forecast.mock";
 
 import iconPrueba from "@/assets/images/weather/icon-sunny.webp"
 
@@ -28,7 +29,7 @@ export const App = () => {
           <SearchBar />
         </header>
 
-        <div className="grid grid-cols-3 gap-5 mt-20">
+        <div className="grid grid-cols-3 gap-5 mt-20 justify-items-stretch">
 
           <div className="col-span-2 space-y-10">
             <DisplayCurrentWeather
@@ -55,8 +56,10 @@ export const App = () => {
             />
           </div>
 
-          <div className="grid-cols-1">
-
+          <div className="col-span-1 relative">
+            <div className="absolute inset-0 overflow-hidden bg-brand-800 rounded-xl p-4 flex flex-col gap-5">
+              <DisplayHourlyForcast hourlyForecast={mockHourlyForecast} />
+            </div>
           </div>
         </div>
       </div>
