@@ -35,7 +35,7 @@ export const DisplayCurrentWeather: FC<Props> = ({ weather, location }) => {
     return (
         <section className='space-y-10'>
             <div
-                className='flex justify-between items-center bg-center bg-cover w-full h-64 overflow-hidden rounded-xl p-5'
+                className='flex flex-col sm:flex-row justify-center sm:justify-between items-center bg-center bg-cover w-full h-64 overflow-hidden rounded-xl p-5 gap-3'
                 style={{ backgroundImage: `url(${bgLarge})` }}
             >
                 <div className='space-y-2'>
@@ -47,20 +47,20 @@ export const DisplayCurrentWeather: FC<Props> = ({ weather, location }) => {
                     </Text>
                     <Text
                         fontType='dm-sans'
-                        className='text-brand-200'
+                        className='text-brand-200 text-center sm:text-left'
                     >
                         {weather.time}
                     </Text>
                 </div>
 
-                <div className='flex justify-between items-center gap-5'>
+                <div className='flex justify-between items-center gap-3 sm:gap-5'>
                     <img
                         src={weather.iconWeather.iconUrl}
                         className='w-24 h-24'
                         alt={weather.iconWeather.description}
                     />
 
-                    <p className='text-white text-8xl italic'>
+                    <p className='text-white text-7xl sm:text-8xl italic'>
                         {weather.temperature}°
                     </p>
                 </div>

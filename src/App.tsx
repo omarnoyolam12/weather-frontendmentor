@@ -29,9 +29,9 @@ export const App = () => {
           <SearchBar />
         </header>
 
-        <div className="grid grid-cols-3 gap-5 mt-20 justify-items-stretch">
+        <div className="grid lg:grid-cols-3 gap-5 mt-20 justify-items-stretch">
 
-          <div className="col-span-2 space-y-10">
+          <div className="col-span-1 lg:col-span-2 space-y-10">
             <DisplayCurrentWeather
               location={{
                 city: 'Berlin',
@@ -56,8 +56,8 @@ export const App = () => {
             />
           </div>
 
-          <div className="col-span-1 relative">
-            <div className="absolute inset-0 overflow-hidden bg-brand-800 rounded-xl p-4 flex flex-col gap-5">
+          <div className="col-span-1 relative mt-5 lg:mt-0">
+            <div className="lg:absolute lg:inset-0 lg:overflow-hidden bg-brand-800 rounded-xl p-4 flex flex-col gap-5">
               <DisplayHourlyForcast hourlyForecast={mockHourlyForecast} />
             </div>
           </div>
