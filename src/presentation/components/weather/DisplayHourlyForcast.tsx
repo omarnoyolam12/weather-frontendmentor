@@ -1,4 +1,4 @@
-import { type FC, useState } from 'react';
+import { type FC, useState, useCallback } from 'react';
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 
 import { Text, CardHourly } from '@/presentation/components/shared';
@@ -15,6 +15,7 @@ const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Fri
 export const DisplayHourlyForcast: FC<Props> = ({ hourlyForecast }) => {
 
     const [selected, setSelected] = useState(daysOfWeek[1]);
+    const filterForecast = useCallback(() => hourlyForecast.filter(hour => hour.date === selected && hour), [selected]);
 
     return (
         <div className='flex flex-col h-full min-h-0 gap-5'>
@@ -63,7 +64,7 @@ export const DisplayHourlyForcast: FC<Props> = ({ hourlyForecast }) => {
 
             <div className='space-y-3 flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-brand-600'>
                 {
-                    hourlyForecast.map((hourly, index) => (
+                    filterForecast().map((hourly, index) => (
                         <CardHourly key={index} hourly={hourly} />
                     ))
                 }

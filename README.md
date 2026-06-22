@@ -24,8 +24,8 @@ src/
 │   │   └── weather.mapper.ts        # Transformadores de datos: DTO -> Entity
 │   ├── datasources/
 │   │   └── weather.api.ts           # Configuración del cliente HTTP (Axios)
-│   └── repositories/
-│       └── weather.repository.ts    # Contrato e implementación del Repositorio
+│   └── services/
+│       └── weather.service.ts       # Servicio que conecta API con mappers
 │
 ├── presentation/                    # --- CAPA DE INTERFAZ DE USUARIO (REACT) ---
 │   ├── components/
@@ -45,3 +45,36 @@ src/
 │
 ├── App.tsx
 └── main.tsx
+```
+
+---
+
+## 📌 Enfoque Pragmático: Servicios + TanStack Query
+
+Para esta aplicación, hemos optado por un enfoque **simplificado pero estructurado**:
+
+- **Servicios** (`src/data/services/`) — Encapsulan la lógica de llamadas HTTP + transformación de datos (DTOs → Entities)
+- **TanStack Query** — Gestiona el estado, caching y sincronización de datos desde los hooks
+- **Sin repositorios** — Evitamos la complejidad de interfaces e inyección de dependencias en una app pequeña
+
+**Ejemplo:**
+
+```typescript
+// src/data/services/weather.service.ts
+export const weatherService = {
+  async getWeatherByLocation(location: string) {
+    const dto = await weatherAPI.fetchWeather(location);
+    return weatherMapper.toDomain(dto);
+  }
+};
+
+// src/presentation/hooks/useWeather.ts
+export const useWeather = (location: string) => {
+  return useQuery({
+    queryKey: ['weather', location],
+    queryFn: () => weatherService.getWeatherByLocation(location)
+  });
+};
+```
+
+Así mantenemos **separación de capas** sin complejidad innecesaria.
