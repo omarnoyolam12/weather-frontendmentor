@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 import type { CurrentWeather } from '@/domain/entities/weather.entity';
 import type { LocationEntity } from '@/domain/entities/location.entity';
@@ -15,24 +14,6 @@ interface Props {
 }
 
 export const DisplayCurrentWeather: FC<Props> = ({ weather, location, units }) => {
-    const [isBgLoaded, setIsBgLoaded] = useState(false);
-
-    useEffect(() => {
-        setIsBgLoaded(false);
-
-        const img = new Image();
-        img.src = bgLarge;
-        img.onload = () => setIsBgLoaded(true);
-
-        return () => {
-            img.onload = null;
-        };
-    }, [bgLarge]);
-
-    if (!isBgLoaded) {
-        return null;
-    }
-
     const listCards = [
         {
             title: 'Feels like',
@@ -56,7 +37,7 @@ export const DisplayCurrentWeather: FC<Props> = ({ weather, location, units }) =
         <section className='space-y-10'>
             <div
                 className='flex flex-col sm:flex-row justify-center sm:justify-between items-center bg-center bg-cover w-full h-64 overflow-hidden rounded-xl p-5 gap-3'
-                style={{ backgroundImage: isBgLoaded ? `url(${bgLarge})` : 'none' }}
+                style={{ backgroundImage: `url(${bgLarge})` }}
             >
                 <div className='space-y-2'>
                     <Text
@@ -76,7 +57,7 @@ export const DisplayCurrentWeather: FC<Props> = ({ weather, location, units }) =
                 <div className='flex justify-between items-center gap-3 sm:gap-5'>
                     <img
                         src={weather.iconWeather.iconUrl}
-                        className='w-24 h-24'
+                        className='w-24 h-24 animate-fadeIn'
                         alt={weather.iconWeather.description}
                     />
 

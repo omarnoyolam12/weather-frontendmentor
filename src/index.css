@@ -16,4 +16,11 @@
     --color-brand-600: hsl(243, 23%, 30%);
     --color-brand-300: hsl(240, 6%, 70%);
     --color-brand-200: hsl(250, 6%, 84%);
+
+    --animate-fadeIn: fadeIn 0.3s ease-in;
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
 }
