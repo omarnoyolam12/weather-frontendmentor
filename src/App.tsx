@@ -1,11 +1,11 @@
-import { NavBar } from "@/presentation/components/shared";
+import { NavBar, SkeletonLayout } from "@/presentation/components/shared";
 import { SearchBar, DisplayCurrentWeather, DisplayDailyForecast, DisplayHourlyForcast } from "@/presentation/components/weather";
 import { useWeather } from "@/presentation/hooks/useWeather";
 
 export const App = () => {
 
   const { useQueryWeather, city, onSelectCity, units, setUnits } = useWeather();
-  const { data: weather } = useQueryWeather;
+  const { data: weather, isLoading } = useQueryWeather;
 
   return (
     <div className="bg-brand-950 w-full min-h-dvh px-5 py-10">
@@ -24,7 +24,15 @@ export const App = () => {
         </header>
 
         {
-          weather && (
+          isLoading && (
+            <div className="grid lg:grid-cols-3 gap-5 mt-20 justify-items-stretch">
+              <SkeletonLayout />
+            </div>
+          )
+        }
+
+        {
+          weather && !isLoading && (
             <div className="grid lg:grid-cols-3 gap-5 mt-20 justify-items-stretch">
               <div className="col-span-1 lg:col-span-2 space-y-10">
                 <DisplayCurrentWeather
