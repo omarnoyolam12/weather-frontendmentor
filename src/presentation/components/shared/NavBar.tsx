@@ -1,18 +1,26 @@
+import type { Dispatch, FC, SetStateAction } from 'react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Text } from '@/presentation/components/shared';
 import logo from "@/assets/images/app/logo.svg";
 
 import dropdown from "@/assets/images/icons/icon-dropdown.svg";
-import units from "@/assets/images/icons/icon-units.svg";
+import unitsImage from "@/assets/images/icons/icon-units.svg";
+import checkmark from '@/assets/images/icons/icon-checkmark.svg';
+import type { Units } from '@/presentation/interfaces';
 
-export const NavBar = () => {
+interface Props {
+    units: Units;
+    setUnits: Dispatch<SetStateAction<Units>>
+}
+
+export const NavBar: FC<Props> = ({ units, setUnits }) => {
     return (
         <nav className="flex justify-between items-center">
             <img src={logo} alt="Logo Weather Now" />
 
             <Menu>
                 <MenuButton className="inline-flex justify-between items-center gap-2 rounded-md bg-brand-800 px-3 py-1.5 text-sm/6 text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-brand-700 data-open:bg-brand-700 cursor-pointer">
-                    <img src={units} alt="Units" />
+                    <img src={unitsImage} alt="Units" />
                     <Text fontType='dm-sans'>Units</Text>
                     <img src={dropdown} alt="Drop" />
                 </MenuButton>
@@ -37,14 +45,42 @@ export const NavBar = () => {
                     </Text>
 
                     <MenuItem>
-                        <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer">
-                            Celcius (°C)
+                        <button
+                            className="group flex w-full justify-between items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setUnits({ ...units, temperature_unit: 'celsius' });
+                            }}
+                        >
+                            <span>
+                                Celcius (°C)
+                            </span>
+
+                            <img
+                                src={checkmark}
+                                className={`${units.temperature_unit === 'celsius' ? 'visible' : 'invisible'}`}
+                                alt="Check"
+                            />
                         </button>
                     </MenuItem>
 
                     <MenuItem>
-                        <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer">
-                            Fahrenheit (°F)
+                        <button
+                            className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setUnits({ ...units, temperature_unit: 'fahrenheit' });
+                            }}
+                        >
+                            <span>
+                                Fahrenheit (°F)
+                            </span>
+
+                            <img
+                                src={checkmark}
+                                className={`${units.temperature_unit === 'fahrenheit' ? 'visible' : 'invisible'}`}
+                                alt="Check"
+                            />
                         </button>
                     </MenuItem>
 
@@ -58,14 +94,42 @@ export const NavBar = () => {
                     </Text>
 
                     <MenuItem>
-                        <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer">
-                            km/h
+                        <button
+                            className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setUnits({ ...units, wind_speed_unit: 'kmh' });
+                            }}
+                        >
+                            <span>
+                                km/h
+                            </span>
+
+                            <img
+                                src={checkmark}
+                                className={`${units.wind_speed_unit === 'kmh' ? 'visible' : 'invisible'}`}
+                                alt="Check"
+                            />
                         </button>
                     </MenuItem>
 
                     <MenuItem>
-                        <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer">
-                            mph
+                        <button
+                            className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setUnits({ ...units, wind_speed_unit: 'mph' });
+                            }}
+                        >
+                            <span>
+                                mph
+                            </span>
+
+                            <img
+                                src={checkmark}
+                                className={`${units.wind_speed_unit === 'mph' ? 'visible' : 'invisible'}`}
+                                alt="Check"
+                            />
                         </button>
                     </MenuItem>
 
@@ -79,14 +143,42 @@ export const NavBar = () => {
                     </Text>
 
                     <MenuItem>
-                        <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer">
-                            Milimeters
+                        <button
+                            className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setUnits({ ...units, precipitation_unit: 'mm' });
+                            }}
+                        >
+                            <span>
+                                Milimeters
+                            </span>
+
+                            <img
+                                src={checkmark}
+                                className={`${units.precipitation_unit === 'mm' ? 'visible' : 'invisible'}`}
+                                alt="Check"
+                            />
                         </button>
                     </MenuItem>
 
                     <MenuItem>
-                        <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer">
-                            Inch
+                        <button
+                            className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 cursor-pointer"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setUnits({ ...units, precipitation_unit: 'inch' });
+                            }}
+                        >
+                            <span>
+                                Inch
+                            </span>
+
+                            <img
+                                src={checkmark}
+                                className={`${units.precipitation_unit === 'inch' ? 'visible' : 'invisible'}`}
+                                alt="Check"
+                            />
                         </button>
                     </MenuItem>
                 </MenuItems>

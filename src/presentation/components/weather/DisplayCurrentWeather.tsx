@@ -5,13 +5,15 @@ import type { LocationEntity } from '@/domain/entities/location.entity';
 import { Text, CardCurrent } from '@/presentation/components/shared';
 
 import bgLarge from "@/assets/images/app/bg-today-large.png";
+import type { Units } from '@/presentation/interfaces';
 
 interface Props {
     weather: CurrentWeather;
     location: LocationEntity;
+    units: Units;
 }
 
-export const DisplayCurrentWeather: FC<Props> = ({ weather, location }) => {
+export const DisplayCurrentWeather: FC<Props> = ({ weather, location, units }) => {
 
     const listCards = [
         {
@@ -24,11 +26,11 @@ export const DisplayCurrentWeather: FC<Props> = ({ weather, location }) => {
         },
         {
             title: 'Wind',
-            value: `${weather.windSpeed} km/h`
+            value: `${weather.windSpeed} ${units.wind_speed_unit === 'kmh' ? 'km/h' : 'mph'}`
         },
         {
             title: 'Precipitation',
-            value: `${weather.precipitation} mm`
+            value: `${weather.precipitation} ${units.precipitation_unit === 'mm' ? 'mm' : 'inch'}`
         },
     ];
 

@@ -26,6 +26,9 @@ importers:
       react:
         specifier: ^19.2.6
         version: 19.2.6
+      react-content-loader:
+        specifier: ^7.1.2
+        version: 7.1.2(react@19.2.6)
       react-dom:
         specifier: ^19.2.6
         version: 19.2.6(react@19.2.6)
@@ -1149,6 +1152,12 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  react-content-loader@7.1.2:
+    resolution: {integrity: sha512-naFG7OERUQNPKQt1QWHyBF0/y6Zmr7dOzqjs1U5yOnu4OZmcE3+b/blp40dEKa9lvYAzOuj5dvfTK1cg5YWJkA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=18.0.0'
 
   react-dom@19.2.6:
     resolution: {integrity: sha512-0prMI+hvBbPjsWnxDLxlCGyM8PN6UuWjEUCYmZhO67xIV9Xasa/r/vDnq+Xyq4Lo27g8QSbO5YzARu0D1Sps3g==}
@@ -2354,6 +2363,10 @@ snapshots:
       react-dom: 19.2.6(react@19.2.6)
       react-stately: 3.47.0(react@19.2.6)
       use-sync-external-store: 1.6.0(react@19.2.6)
+
+  react-content-loader@7.1.2(react@19.2.6):
+    dependencies:
+      react: 19.2.6
 
   react-dom@19.2.6(react@19.2.6):
     dependencies:

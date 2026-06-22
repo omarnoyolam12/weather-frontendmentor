@@ -15,7 +15,7 @@ const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Fri
 export const DisplayHourlyForcast: FC<Props> = ({ hourlyForecast }) => {
 
     const [selected, setSelected] = useState(daysOfWeek[1]);
-    const filterForecast = useCallback(() => hourlyForecast.filter(hour => hour.date === selected && hour), [selected]);
+    const filterForecast = useCallback(() => hourlyForecast.filter(hour => hour.date === selected && hour), [selected, hourlyForecast]);
 
     return (
         <div className='flex flex-col h-full min-h-0 gap-5'>

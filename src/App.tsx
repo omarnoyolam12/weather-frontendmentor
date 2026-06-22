@@ -1,30 +1,16 @@
 import { NavBar } from "@/presentation/components/shared";
 import { SearchBar, DisplayCurrentWeather, DisplayDailyForecast, DisplayHourlyForcast } from "@/presentation/components/weather";
-// import type { DailyForecast } from "@/domain/entities/weather.entity";
 import { useWeather } from "@/presentation/hooks/useWeather";
-// import { mockHourlyForecast } from "@/data/hourly-forecast.mock";
-
-// import iconPrueba from "@/assets/images/weather/icon-sunny.webp"
-
-// const dailyForecastMock: DailyForecast[] = [
-//   { date: 'Mon', maxTemperature: 22, minTemperature: 14, iconWeather: { description: 'Sunny', iconUrl: iconPrueba } },
-//   { date: 'Tue', maxTemperature: 20, minTemperature: 13, iconWeather: { description: 'Partly cloudy', iconUrl: iconPrueba } },
-//   { date: 'Wed', maxTemperature: 18, minTemperature: 12, iconWeather: { description: 'Rain', iconUrl: iconPrueba } },
-//   { date: 'Thu', maxTemperature: 21, minTemperature: 15, iconWeather: { description: 'Cloudy', iconUrl: iconPrueba } },
-//   { date: 'Fri', maxTemperature: 23, minTemperature: 16, iconWeather: { description: 'Sunny', iconUrl: iconPrueba } },
-//   { date: 'Sat', maxTemperature: 24, minTemperature: 17, iconWeather: { description: 'Warm', iconUrl: iconPrueba } },
-//   { date: 'Sun', maxTemperature: 19, minTemperature: 13, iconWeather: { description: 'Breezy', iconUrl: iconPrueba } },
-// ];
 
 export const App = () => {
 
-  const { useQueryWeather, city, onSelectCity } = useWeather();
+  const { useQueryWeather, city, onSelectCity, units, setUnits } = useWeather();
   const { data: weather } = useQueryWeather;
 
   return (
     <div className="bg-brand-950 w-full min-h-dvh px-5 py-10">
       <div className="mx-auto container max-w-7xl">
-        <NavBar />
+        <NavBar units={units} setUnits={setUnits} />
 
         <h1 className="text-white text-center text-4xl md:text-5xl font-bricolage font-semibold my-20">
           How's the sky looking today?
@@ -44,6 +30,7 @@ export const App = () => {
                 <DisplayCurrentWeather
                   location={city!}
                   weather={weather.current}
+                  units={units}
                 />
 
                 <DisplayDailyForecast

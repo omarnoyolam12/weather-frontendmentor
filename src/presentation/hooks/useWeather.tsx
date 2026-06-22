@@ -5,11 +5,7 @@ import { getWeatherAction } from '@/infrastructure/actions/get-weather.action';
 import type { WeatherEntity } from '@/domain/entities/weather.entity';
 import type { LocationEntity } from '@/domain/entities/location.entity';
 
-interface Units {
-    temperature_unit: 'fahrenheit' | 'celsius';
-    wind_speed_unit: 'mph' | 'kmh';
-    precipitation_unit: 'inch' | 'mm';
-}
+import type { Units } from '@/presentation/interfaces';
 
 interface Coordinates {
     lat: number | undefined;
