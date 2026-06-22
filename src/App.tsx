@@ -1,11 +1,11 @@
-import { NavBar, SkeletonLayout } from "@/presentation/components/shared";
+import { NavBar, ScreenError, SkeletonLayout } from "@/presentation/components/shared";
 import { SearchBar, DisplayCurrentWeather, DisplayDailyForecast, DisplayHourlyForcast } from "@/presentation/components/weather";
 import { useWeather } from "@/presentation/hooks/useWeather";
 
 export const App = () => {
 
   const { useQueryWeather, city, onSelectCity, units, setUnits } = useWeather();
-  const { data: weather, isLoading } = useQueryWeather;
+  const { data: weather, isLoading, isError } = useQueryWeather;
 
   return (
     <div className="bg-brand-950 w-full min-h-dvh px-5 py-10">
@@ -28,6 +28,12 @@ export const App = () => {
             <div className="grid lg:grid-cols-3 gap-5 mt-20 justify-items-stretch">
               <SkeletonLayout />
             </div>
+          )
+        }
+
+        {
+          isError && (
+            <ScreenError />
           )
         }
 
