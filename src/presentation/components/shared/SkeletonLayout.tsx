@@ -1,6 +1,4 @@
-import type { FC } from 'react';
-
-export const SkeletonLayout: FC = () => {
+export const SkeletonLayout = () => {
     return (
         <>
             <div className="col-span-1 lg:col-span-2 space-y-6 animate-pulse">
@@ -40,5 +38,3 @@ export const SkeletonLayout: FC = () => {
         </>
     )
 }
-
-export default SkeletonLayout;
