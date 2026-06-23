@@ -4,7 +4,7 @@ import type { LocationEntity } from '@/domain/entities/location.entity';
 
 import { Text, CardCurrent } from '@/presentation/components/shared';
 
-import bgLarge from "@/assets/images/app/bg-today-large.png";
+import bgLarge from "@/assets/images/app/bg-today-large.svg";
 import type { Units } from '@/presentation/interfaces';
 
 interface Props {
