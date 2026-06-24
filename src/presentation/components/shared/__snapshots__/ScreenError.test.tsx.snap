@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ScreenError > should match snapshot 1`] = `
+<div>
+  <div
+    class="w-full flex justify-center items-center gap-5 flex-col mt-10"
+  >
+    <img
+      alt="Error"
+      class="w-10 h-10 mx-auto"
+      src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='18'%20height='18'%20fill='none'%20viewBox='0%200%2018%2018'%3e%3cpath%20fill='%23ACACB7'%20d='M9%20.531c4.781%200%208.719%203.938%208.719%208.719%200%204.816-3.938%208.719-8.719%208.719A8.717%208.717%200%200%201%20.281%209.25C.281%204.469%204.184.531%209%20.531Zm4.957%203.762c-2.566-2.566-6.574-2.707-9.316-.563l9.879%209.88c2.144-2.743%202.003-6.75-.563-9.317Zm-9.95%209.95c2.567%202.566%206.575%202.706%209.317.562l-9.879-9.88c-2.144%202.743-2.004%206.75.563%209.317Z'/%3e%3c/svg%3e"
+    />
+    <p
+      class="font-dmsans text-white text-4xl text-center"
+    >
+      Something went wrong
+    </p>
+    <p
+      class="font-dmsans text-brand-300 text-center text-lg"
+    >
+      We couldn't connect to the server (API error). Please try again in a few moments.
+    </p>
+  </div>
+</div>
+`;

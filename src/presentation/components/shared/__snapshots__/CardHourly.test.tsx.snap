@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardDaily > should match snapshot 1`] = `
+<div>
+  <div
+    class="flex justify-between items-center gap-4 bg-brand-700 px-4 py-2 border border-brand-600 rounded-xl"
+  >
+    <div
+      class="flex items-center gap-4"
+    >
+      <img
+        alt="Slight rain"
+        class="w-12 h-12"
+        src="/src/assets/images/weather/icon-rain.webp"
+      />
+      <p
+        class="font-dmsans text-white text-lg font-light"
+      >
+        15:00
+      </p>
+    </div>
+    <p
+      class="font-dmsans text-sm text-white"
+    >
+      24
+      °
+    </p>
+  </div>
+</div>
+`;

@@ -22,12 +22,12 @@ export const searchLocationAction = async (name: string): Promise<LocationEntity
 
     } catch (error) {
 
-        if (error instanceof Error) {
-            throw error;
-        }
-
         if (axios.isAxiosError(error)) {
             throw new Error('Try later');
+        }
+
+        if (error instanceof Error) {
+            throw error;
         }
 
         throw new Error('An unknown error occurred while searching for the location');

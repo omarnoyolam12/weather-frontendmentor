@@ -33,4 +33,24 @@ describe('Text Component', () => {
         const p = container.querySelector('p');
         expect(p?.classList).toContain(className);
     });
+
+    test('should apply font-bricolage class when fontType is gricolage', () => {
+        const { container } = render(
+            <Text fontType='gricolage'>Texto</Text>
+        );
+
+        const p = container.querySelector('p');
+        expect(p?.classList).toContain('font-bricolage');
+    });
+
+    test('should apply an extra className alongside the font class', () => {
+        const { container } = render(
+            <Text fontType='dm-sans' className='text-white text-2xl'>Texto</Text>
+        );
+
+        const p = container.querySelector('p');
+        expect(p?.classList).toContain('font-dmsans');
+        expect(p?.classList).toContain('text-white');
+        expect(p?.classList).toContain('text-2xl');
+    });
 });
